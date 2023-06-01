@@ -100,11 +100,6 @@ def chat():
             else:
                 print("Chatbot: Gracias por proporcionar tus datos. Ahora puedo ayudarte mejor.")
                 print("Chatbot: Se ha enviado tu pregunta y datos a un asesor. Se pondrá en contacto contigo tan pronto como sea posible.")
-
-        if any(opcion.lower() in user_input.lower() for opcion in opciones):
-            opcion_elegida = next((opcion for opcion in opciones if opcion.lower() in user_input.lower()), None)
-            print(f"Chatbot: Entendido, elegiste la opción: {opcion_elegida}")
-            # Aquí puedes implementar la lógica correspondiente para cada opción elegida por el cliente
         
         print("Chatbot: ¿Puedo ayudarte en algo más?")
         respuesta = input("Cliente: ")

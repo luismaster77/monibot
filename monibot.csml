@@ -1,0 +1,52 @@
+behavior:
+  - name: "start"
+    events:
+      - command: "start"
+    actions:
+      - say: "Hola, soy MoniBot. ¿En qué puedo ayudarte hoy?"
+      - say: "Por favor, elige una opción:"
+      - options:
+          - label: "Información planes y suscripciones"
+            value: "1"
+          - label: "Información sobre plataforma"
+            value: "2"
+          - label: "Enviar pregunta o duda a un asesor"
+            value: "3"
+          - label: "Otra"
+            value: "4"
+    transitions:
+      - event: "option"
+        conditions:
+          - if: "event.value == '1'"
+            goto: "informacion_planes"
+          - if: "event.value == '2'"
+            goto: "informacion_plataforma"
+          - if: "event.value == '3'"
+            goto: "enviar_pregunta"
+          - if: "event.value == '4'"
+            goto: "otra"
+      
+  - name: "informacion_planes"
+    actions:
+      - say: "Aquí puedes encontrar información sobre nuestros planes y suscripciones."
+      # Agrega aquí la lógica adicional para esta opción
+    
+  - name: "informacion_plataforma"
+    actions:
+      - say: "Aquí puedes encontrar información sobre nuestra plataforma."
+    
+  - name: "enviar_pregunta"
+    actions:
+      - say: "Aquí puedes enviar tu pregunta o duda a uno de nuestros asesores."
+      # Agrega aquí la lógica adicional para esta opción
+    
+  - name: "otra"
+    actions:
+      - say: "Opción no válida. Por favor, elige una opción válida."
+    
+  - name: "end"
+    events:
+      - command: "end"
+    actions:
+      - say: "Entendido. Si tienes alguna otra pregunta, estaré aquí para ayudarte."
+
